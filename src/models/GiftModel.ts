@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const giftSchema = new mongoose.Schema({
+const GiftSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -10,7 +10,7 @@ export const giftSchema = new mongoose.Schema({
     required: true
   },
   size: {
-    type: Number,
+    type: String,
     required: true
   },
   quantity: {
@@ -18,3 +18,5 @@ export const giftSchema = new mongoose.Schema({
     required: true
   }
 }, { collection: 'gift' }); 
+
+export const GiftModel = mongoose.model('GiftModel', GiftSchema);
