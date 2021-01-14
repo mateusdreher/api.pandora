@@ -1,7 +1,7 @@
 export interface ISelectNumberDTO {
-    name: string;
-    phone?: string;
-    email?: string;
-    chosen_numbers: Array<number>;
+    people_name: string;
+    people_phone?: string;
+    people_email?: string;
+    chosen_number: number;
     gift: string;
 }

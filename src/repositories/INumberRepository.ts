@@ -1,8 +1,17 @@
-import { Number } from '../entities/Number';
+import { NumberEntity } from './../entities/NumberEntity';
 
 export interface INumberRepository {
-    findByName(name: string): Promise<Number>;
-    findByPhone(phone: string): Promise<Number>;
-    findByEmail(email: string): Promise<Number>;
-    findById(id: string): Promise<Number>;
+    findByName(name: string): Promise<NumberEntity>;
+
+    findByPhone(phone: string): Promise<NumberEntity>;
+
+    findByEmail(email: string): Promise<NumberEntity>;
+
+    findById(id: string): Promise<NumberEntity>;
+
+    findByNumber(number: number): Promise<NumberEntity>;
+
+    save(number: NumberEntity): Promise<any>;
+    
+    listSelectedNumbers(): Promise<NumberEntity>
 }
