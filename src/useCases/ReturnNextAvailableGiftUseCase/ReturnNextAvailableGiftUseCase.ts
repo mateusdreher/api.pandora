@@ -1,9 +1,21 @@
-const nextGift = balanceService.balance(5, 5); // Retorna qual será o proximo presente 
-                                                      // Liberado (fralda ou outro)
+import { IGiftRepository } from '../../repositories/IGiftRepository';
+import balanceService from '../../utils/GiftBalancingUtil';
+
+export class ReturnNexAvailableGiftUseCase {
+    
+    constructor(private giftRepository: IGiftRepository) { }
+
+    async execute() {
+        let quantityDiapers = 0;
+
+        const diapers = await this.giftRepository.findByType('F');
+        const quantityOthers = await this.giftRepository.findByType('M');
+
+        diapers.forEach((item) => {
+            quantityDiapers += Number(item.quantity);
+        });
+
+        return balanceService.balance(quantityDiapers, quantityOthers[0].quantity);
         
-        if (nextGift === 'diaper') {
-            //Libera fralda 
-        }
-        if (nextGift === 'any') {
-            //Libera fralda e mimo
-        }
+    }
+}
