@@ -1,6 +1,8 @@
 import { NumberEntity } from './../entities/NumberEntity';
 
 export interface INumberRepository {
+    findAll(): Promise<NumberEntity[]>;
+
     findByName(name: string): Promise<NumberEntity>;
 
     findByPhone(phone: string): Promise<NumberEntity>;

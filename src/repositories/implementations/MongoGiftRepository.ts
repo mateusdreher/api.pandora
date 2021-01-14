@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import { GiftEntity } from './../../entities/GiftEntity';
 import { IGiftRepository } from './../IGiftRepository';
 import { GiftModel } from './../../models/GiftModel';
@@ -15,7 +14,7 @@ export class MongoGiftRepository implements IGiftRepository {
     
   }
 
-  async findByType(type: string): Promise<GiftEntity>{
+  async findByType(type: string): Promise<GiftEntity[]>{
     return await GiftModel.find({ type });
 
   }

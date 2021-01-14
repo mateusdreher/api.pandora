@@ -1,19 +1,19 @@
 import { ResponseSuccess } from './../../utils/ResponseSuccess';
 import { StatusCodeEnum } from './../../utils/enums/StatusCodeEnum';
 import { ResponseError } from './../../utils/ResponseError';
-import { ReturnNexAvailableGiftUseCase } from './ReturnNextAvailableGiftUseCase';
+import { ReturnAlreadyTakenNumbersUseCase } from './ReturnAlreadyTakenNumbersUseCase';
 import { Request, Response } from 'express';
 
-export class ReturnNexAvailableGiftController {
+export class ReturnAlreadyTakenNumbersController {
 
-  constructor(private returnNexAvailableGiftUseCase: ReturnNexAvailableGiftUseCase) { }
+  constructor(private returnAlreadyTakenNumbersUseCase: ReturnAlreadyTakenNumbersUseCase) { }
 
   async handle(request: Request, response: Response): Promise<Response> {
 
 
     try {
 
-      const res = await this.returnNexAvailableGiftUseCase.execute();
+      const res = await this.returnAlreadyTakenNumbersUseCase.execute();
 
       return response.status(200).json({ 
         res: new ResponseSuccess(StatusCodeEnum.success, 'Sucesso', res)

@@ -5,6 +5,10 @@ import { INumberRepository } from './../INumberRepository';
 
 export class MongoNumberRepository implements INumberRepository {
   
+  async findAll(): Promise<NumberEntity[]> {
+    return await NumberModel.find();
+  }
+
   async findByName(name: string): Promise<NumberEntity> {
     
     return await NumberModel.find({ name });
