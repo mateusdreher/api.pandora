@@ -7,7 +7,7 @@ dotenv.config();
 const PORT = process.env.PORT || 3030;
 
 try {
-    app.listen(3030);
+    app.listen(PORT);
 
     connect();
 
