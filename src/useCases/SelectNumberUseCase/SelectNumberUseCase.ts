@@ -29,7 +29,9 @@ export class SelectNumberUseCase {
 
         await this.numberRepository.save(dto);
 
-        await this.giftRepository.addQuantity(gift.id, 1);
+        const giftQuantity = await this.giftRepository.findById(gift.id);
+
+        await this.giftRepository.addQuantity(gift.id, (giftQuantity.quantity+1));
 
         
     }

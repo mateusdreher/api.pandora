@@ -1,6 +1,5 @@
-import { ResponseSuccess } from './../../utils/ResponseSuccess';
+import { ResponseApi } from '../../utils/ResponseApi';
 import { StatusCodeEnum } from './../../utils/enums/StatusCodeEnum';
-import { ResponseError } from './../../utils/ResponseError';
 import { ReturnAlreadyTakenNumbersUseCase } from './ReturnAlreadyTakenNumbersUseCase';
 import { Request, Response } from 'express';
 
@@ -16,13 +15,13 @@ export class ReturnAlreadyTakenNumbersController {
       const res = await this.returnAlreadyTakenNumbersUseCase.execute();
 
       return response.status(200).json({ 
-        res: new ResponseSuccess(StatusCodeEnum.success, 'Sucesso', res)
+        res: new ResponseApi(StatusCodeEnum.success, 'Sucesso', res)
     });
 
 
     } catch (error) {
       return response.status(400).json({
-          res: new ResponseError(StatusCodeEnum.httpError, (error.message || 'Unexpected Error'))
+          res: new ResponseApi(StatusCodeEnum.httpError, (error.message || 'Unexpected Error'), '')
       }); 
     }
   }

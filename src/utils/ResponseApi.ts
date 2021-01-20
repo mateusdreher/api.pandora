@@ -1,5 +1,5 @@
 import { StatusCodeEnum } from './enums/StatusCodeEnum';
-export class ResponseSuccess {
+export class ResponseApi {
 
   constructor(
     public statusCode: StatusCodeEnum,

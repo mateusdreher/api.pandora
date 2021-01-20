@@ -20,7 +20,7 @@ export class MongoGiftRepository implements IGiftRepository {
   }
 
   async addQuantity(id: string, quantity: number): Promise<GiftEntity>{
-
+    
     return await GiftModel.findByIdAndUpdate(id, { quantity }, { new: true });
 
   }
